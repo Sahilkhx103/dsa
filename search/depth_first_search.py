@@ -17,18 +17,17 @@ def dfs(graph, node):
     visited = set()
     stack = []
 
-    visited.add(node)
     stack.append(node) 
 
     while stack:
         s = stack.pop()
+        visited.add(s) # add the top value from stack to visited.
         print(s, end = ' ')
 
         # Reverse iterate through the edge list so results match recursive version.
         for n in reversed(graph[s]):
             # Because visited is a set, this lookup is O(1).
             if n not in visited:
-                visited.add(n)
                 stack.append(n)
 
 
